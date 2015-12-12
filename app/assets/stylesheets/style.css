@@ -1,0 +1,155 @@
+body {
+	margin-bottom:40px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.margin-top-20 {
+	margin-top:20px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.margin-top-10 {
+	margin-top:10px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.margin-right-25 {
+	margin-right:25px;
+}
+
+.img-padding {
+	margin-top:10px;
+	margin-bottom:10px;
+	margin-left:10px;
+}
+
+.one-dish {
+	padding:15px;
+	background-color:#192C44;
+	border-radius:10px;
+}
+
+.no-pad {
+	padding:0;
+}
+
+.padding-left-15 {
+	padding-left:15px;
+}
+
+.dropdown-toggle {
+	width: 50%;
+}
+
+.dropdown-menu-center {
+	left: 50%;
+	text-align: left;
+	transform: translate(-50%, 0);
+	width: 50%;
+}
+
+.dropdown-menu-modal {
+	width: 100%;
+	position: absolute;
+	margin-bottom: 10px;
+}
+
+.dropdown {
+	text-align: center;
+}
+
+.btn-center {
+	left:50%;
+	transform: translate(-50%, 0);
+	width: 50%;
+}
+
+.submit-btn-center {
+	width: 50%;	
+	transform: translate(50%, 0);
+}
+
+.btn-blue {
+	color:#FFFFFF;	
+	background-color:#192C44;
+}
+
+.btn-blue:hover {
+	background-color:#233751;
+	color:#FFFFFF;
+}
+
+.btn-line {
+	background-color:#192C44;
+	color:#FFFFFF;
+	border-style: solid;
+	border-color: white;
+}
+
+.btn-line:hover {
+	background-color:#233751;
+	color:#FFFFFF;
+}
+
+.btn-orange {
+	background-color:#FA451B;
+	color:#FFFFFF;
+}
+
+.btn-orange-form{
+	background-color:#FA451B;
+	color:#FFFFFF;	
+	width:100%;
+}
+
+.btn-orange:hover {
+	background-color:#EE3227;
+	color:#FFFFFF;
+}
+
+.dish-number {
+	color:#FFFFFF;	
+	font-size: x-large;
+}
+
+.dish-title {
+	color:#FFFFFF;	
+	font-size: large;
+}
+
+.restaurant {
+	padding-top: 5px;
+	color:#FFFFFF;	
+	font-size: small;
+}
+
+.modal-header {
+	background-color:#192C44;
+	border-bottom:0;
+}
+
+.modal-body {
+	background-color:#192C44;
+	color:#FFFFFF;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.modal-footer {
+	background-color:#192C44;
+	color:#FFFFFF;
+	font-family: 'Montserrat', sans-serif;	
+	border-top:0;
+}
+
+.modal-title {
+	color:#FFFFFF;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.close {
+	color:#FFFFFF;	
+}
+
+.orange-text {
+	color:#FA451B;	
+}

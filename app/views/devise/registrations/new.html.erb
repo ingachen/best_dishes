@@ -1,0 +1,42 @@
+<div class="small-container well margin-top-20">
+  <h2>Create an account</h2>
+
+  <%= form_for(:user, url: user_registration_path) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="margin-top-20">
+    <%= f.text_field :first_name, autofocus: true, class: "form-control", placeholder: "First Name" %>
+  </div>
+
+  <div class="margin-top-20">
+    <%= f.text_field :last_name, autofocus: true, class: "form-control", placeholder: "Last Name" %>
+  </div>
+
+  <div class="margin-top-20">
+    <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email Address" %>
+  </div>
+
+  <div class="margin-top-20">
+    <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" %>
+  </div>
+
+  <div class="margin-top-20">
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Password Confirm" %>
+  </div>
+
+  <div class="margin-top-20">
+    <%= f.text_area :about_me, autofocus: true, class: "form-control", placeholder: "About Me" %>
+  </div>
+
+  <div class="margin-top-20">
+    <div class="actions">
+      <%= f.submit "Create Account", class: "btn btn-primary" %>
+    </div>
+  </div>
+
+  <div class="margin-top-10">  
+    <%= link_to 'Already have an account? Log in', new_user_session_path %>  
+  </div>
+
+  <% end %>
+</div>

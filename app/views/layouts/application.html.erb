@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BestDishes</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+
+<% if user_signed_in? %>
+  <div class="container margin-top-20">
+      <img src="https://photos-1.dropbox.com/t/2/AABPjy9CB-iF7ifGzMeCTE0MCWEE2epd4xHl8xDWz80hJg/12/341749367/png/32x32/1/_/1/2/best%20dishes%20logo.png/ELLr5tMDGOoBIAcoBw/AkguHBAsd0ZjF0NAq4ipP4e9R-ljISZh0_bxaDd-FtE?size=1280x960&size_mode=3">
+    <div class="pull-right">
+      <div class="dropdown">
+        <button class="btn btn-blue" type="button" id="usermenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user.first_name %> <%= current_user.last_name %>
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu pull-right">                
+          <li><%= link_to 'Edit User Profile', edit_user_registration_path %></li>
+          <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+        </ul>
+      </div>   
+    </div>
+    <div class="pull-right">
+      <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#AddDish">
+        Add a Dish
+      </button>
+    </div>    
+    </div>
+
+    <div class="modal fade" id="AddDish" tabindex="-1" role="dialog" aria-labelledby="AddDishLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Add a Dish</h4>
+              <h8 class="modal-title">First of all, congrats! You are the first to discover this on Best Dishes. To leave a review about a dish, find that specific dish and leave a review there.</h8>
+          </div>
+
+          <div class="modal-body">
+            <div class="orange-text">CATEGORY</div>
+            <%= form_for :dish, url: dishes_path do |f| %>
+              <div class="dropdown">
+                <button class="btn btn-orange-form dropdown-toggle margin-top-10" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Select Food Category
+                  <span class="caret"></span>
+                </button>
+              
+                <ul class="dropdown-menu dropdown-menu-modal" aria-labelledby="dropdownMenu1">
+                  <% @dish_categories.uniq.each do |category| %>
+                  <li><a href="#"><%= category %></a></li>
+                  <% end %>
+                  <li><a href="#" data-toggle="modal" data-target="#categoryModal">Create a category</a></li>
+                </ul>
+              </div>
+
+              <div class="orange-text margin-top-20">DISH NAME</div>
+              <%= f.text_field :dish_name, class: "form-control margin-top-10", placeholder: "e.g. Lemon ricotta pancakes" %>
+              
+              <div class="orange-text margin-top-20">DISH COVER PHOTO</div>
+              <%= f.text_field :dish_coverphoto, class: "form-control margin-top-10", placeholder: "Paste image URL here" %>
+              
+              <div class="orange-text margin-top-20">RESTAURANT</div>
+              <button class="btn btn-orange-form dropdown-toggle margin-top-10" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Select Restaurant (TBD AUTO FILL) <span class="caret"></span>
+              </button>
+
+              <ul class="dropdown-menu dropdown-menu-modal" aria-labelledby="dropdownMenu2">
+                <% @dish_categories.uniq.each do |category| %>
+                <li><a href="#"><%= category %></a></li>
+                <% end %>
+              </ul>
+
+              <div class="modal-footer">
+                <%= f.submit 'Save', class: 'btn btn-orange btn-center' %>
+              </div>
+
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  <div class="modal fade" id="categoryModal" tabindex="-1" role="dialog" aria-labelledby="categoryModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="categoryModalLabel">Create a Category</h4>
+        </div>
+        <div class="modal-body">
+          <div class="orange-text">CATEGORY NAME</div>
+          <input type="text" class="form-control margin-top-10" id="inputname" placeholder="e.g. Pancakes">
+          <div class="orange-text margin-top-20">COVER PHOTO</div>
+          <input type="text" class="form-control margin-top-10" id="inputname" placeholder="Paste image URL here">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-orange btn-center">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% else %>
+<% end %>
+
+<%= yield %>
+
+<!-- Footer -->
+<footer>
+  <div class="row">
+    <div class="col-lg-12 text-center margin-top-20">
+      <p>Copyright &copy; Inga Chen 2015</p>
+    </div>
+  </div>
+  <!-- /.row -->
+</footer>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

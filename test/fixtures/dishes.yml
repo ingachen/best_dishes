@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dish_name: MyString
+  dish_category: MyString
+  yelp_id: MyString
+
+two:
+  dish_name: MyString
+  dish_category: MyString
+  yelp_id: MyString

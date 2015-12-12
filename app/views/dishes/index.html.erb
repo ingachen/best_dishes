@@ -1,0 +1,106 @@
+<div class="container margin-top-20">
+  <div class="clearfix"></div>
+  <h4 class="text-center">I'm in the mood for</h4>
+  <div class="dropdown">
+    <button class="btn btn-primary btn-blue dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Dish Category
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-center" aria-labelledby="dropdownMenu1">
+      <% @dish_categories.each do |category| %>
+        <li><a href="#"><%= category %></a></li>
+      <% end %>
+      <li><a href="#" data-toggle="modal" data-target="#categoryModal">Create a category</a></li>      
+      <!-- <li><a href="#">French Toast</a></li>
+      <li><a href="#">Eggs Benedict</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="#">Beef noodle soup</a></li>
+      <li><a href="#">Minced pork over rice</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="#">Ramen</a></li>
+      <li><a href="#">Japanese rice ball</a></li>
+      <li><a href="#">Japanese curry</a></li>
+      <li><a href="#">Omakase</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="#">Spaghetti al Amatriciana</a></li>
+      <li><a href="#">Seafood Risotto</a></li> -->
+    </ul>  
+  </div>
+  <h4 class="text-center">in</h4>
+  <div class="dropdown">
+    <button class="btn btn-blue dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Neighborhood, City
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-center" aria-labelledby="dropdownMenu1">
+      <% @dishes.each do |yelp| %>
+        <li><a href="#"><%= yelp.business.location.neighborhoods.first %>, <%= yelp.business.location.city %></a></li>
+        <% end %>
+    </ul>
+  </div>      
+  <button type="submit" class="btn btn-orange submit-btn-center margin-top-20">Update</button>
+
+  <div id="row">
+    <!--One Dish-->
+    <% @dishes.sort_by(&:average_rating).reverse.each_with_index do |dish, i| %>
+    <div class="col-xs-6 col-sm-4 margin-top-20 one-dish margin-right-25">
+      <img src=<%= dish.dish_coverphoto %> height="300" width="300" class="img-responsive" />
+      <!-- have a counter, and order by average rating descending -->
+      <div class="dish-number img-padding"><%= i + 1 %>. <%= dish.dish_name %></div>
+      <!-- give yelp id to get response of response.business.name with clickable url-->
+      <p class="dish-title img-padding"><%= dish.business.name %></p> 
+      <!-- give yelp id and to get response of location.neighborhoods and location.city -->
+      <p class="restaurant img-padding"><%= dish.business.location.neighborhoods.first %>, <%= dish.business.location.city %></p>
+      <button class="btn btn-orange img-padding">
+        Overall Rating: <%= dish.display_average_rating %>
+      </button>
+      <button type="button" class="btn btn-line" data-toggle="modal" data-target="#AddDishRating">
+        Review this dish
+      </button>
+      <p class="dish-title img-padding"><%= dish.reviews.count %> Reviews</p>
+      <!-- all user comments on this dish -->
+      <% dish.reviews.each do |review| %>
+      <p class="restaurant img-padding"><%= review.review_content %></p>
+       <!-- The pancake batter was really good but the ratio of lemon ricotta to batter was too high and felt too mushy and a little undercooked. -->
+      <% end %>
+  
+  <div class="modal fade" id="AddDishRating" tabindex="-1" role="dialog" aria-labelledby="AddDishRatingLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Review a Dish</h4>
+        </div>
+        <div class="modal-body">
+          <div class="orange-text">DISH</div>
+          <button class="btn btn-orange-form dropdown-toggle margin-top-10" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Select Dish to leave a review for
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-modal" aria-labelledby="dropdownMenu1">
+            <% @dishes.each do |dish| %>
+              <li><a href="#"><%= dish.dish_name %></a></li>
+            <% end %>
+          </ul>
+          <div class="orange-text margin-top-20">DISH NAME</div>
+          <input type="text" class="form-control margin-top-10" id="inputname" placeholder="e.g. Pancake">
+          <div class="orange-text margin-top-20">DISH RATING</div>
+          <input type="text" class="form-control margin-top-10" id="inputname" placeholder="Rating Stars">
+          <div class="orange-text margin-top-20">DISH IMAGE</div>
+          <input type="text" class="form-control margin-top-10" id="inputname" placeholder="Paste image URL here">
+          <div class="orange-text margin-top-20">COMMENTS</div>
+          <textarea class="form-control" placeholder="Comment on the dish and why you gave it the rating you did. What made it good? What could have been better? Compare this to other similar dishes you've had." rows="10"></textarea>       
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-orange btn-center">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>        
+<!--       <p class="restaurant img-padding">15 Likes</p>
+      <p class="restaurant img-padding">29 Bookmarks</p>
+ -->    </div>
+    <% end %>
+    <!--/One Dish-->
+  </div>
+</div>
