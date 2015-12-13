@@ -12,12 +12,14 @@ $(document).ready(function() {
 
     var dropdownContent = selectedCategory + ' <span class="caret"></span>';
     $('.category-dropdown').html(dropdownContent);
+  });
 
-    // var selectedCategorymodal = $(this).data('category');
-    // var dishes = $('.dish-card[data-category="' + selectedCategorymodal + '"]');
+  $('.add-dish-category-select').on('click', function() {
+    var selectedCategory = $(this).data('category');
+    $('.add-dish-category-field').val(selectedCategory);
 
-    // var dropdownContentmodal = selectedCategory + ' <span class="caret"></span>';
-    // $('.category-dropdown-modal').html(dropdownContentmodal);
+    var dropdownContent = selectedCategory + ' <span class="caret"></span>';
+    $('.add-dish-select-category-dropdown').html(dropdownContent);
 
-  })
+  });
 });

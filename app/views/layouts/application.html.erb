@@ -46,18 +46,31 @@
             <div class="orange-text">CATEGORY</div>
             <%= form_for :dish, url: dishes_path do |f| %>
               <div class="dropdown">
-                <button class="btn btn-orange-form dropdown-toggle margin-top-10 category-dropdown" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button
+                  class="btn btn-orange-form dropdown-toggle margin-top-10 add-dish-select-category-dropdown"
+                  type="button"
+                  id="dropdownMenu1"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
                   Select Food Category
                   <span class="caret"></span>
                 </button>
               
                 <ul class="dropdown-menu dropdown-menu-modal" aria-labelledby="dropdownMenu1">
                   <% @dish_categories.uniq.each do |category| %>
-                  <li><a class="category-select" data-category="<%= category %>" href="#"><%= f.select :dish_category, [category] %></a></li>
+                    <li>
+                      <a class="add-dish-category-select" data-category="<%= category %>" href="#">
+                        <%= category %>
+                      </a>
+                    </li>
                   <% end %>
                   <li><a href="#" data-toggle="modal" data-target="#categoryModal">Create a category</a></li>
                 </ul>
               </div>
+
+              <%= f.hidden_field :dish_category, class: "add-dish-category-field" %>
 
               <div class="orange-text margin-top-20">DISH NAME</div>
               <%= f.text_field :dish_name, class: "form-control margin-top-10", placeholder: "e.g. Lemon ricotta pancakes" %>
