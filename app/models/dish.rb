@@ -12,7 +12,7 @@ class Dish < ActiveRecord::Base
 	end
 
 	def display_average_rating
-		has_reviews? ? "#{average_rating} out of 10" : "None"
+		has_reviews? ? "#{average_rating} / 10" : "None"
 	end
 
 	def has_reviews?

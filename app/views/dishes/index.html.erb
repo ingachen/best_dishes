@@ -41,10 +41,9 @@
             Review this dish
           </button>
           <p class="dish-title img-padding"><%= dish.reviews.count %> Reviews</p>
+          <p class="dish-reviews-link dish-title img-padding" data-toggle="modal" data-target="#reviews-modal">View Reviews</p>
 
-          <% dish.reviews.each do |review| %>
-            <p class="restaurant img-padding"><%= review.review_content %></p>
-          <% end %>
+          <%= render partial: 'reviews_modal', locals: { reviews: dish.reviews } %>
 
             <div class="modal fade" id="AddDishRating" tabindex="-1" role="dialog" aria-labelledby="AddDishRatingLabel">
               <div class="modal-dialog" role="document">

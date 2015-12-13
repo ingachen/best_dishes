@@ -111,6 +111,10 @@ body {
 	color:#FFFFFF;
 }
 
+.dish-reviews-link {
+	cursor: pointer;
+}
+
 .dishes-grid {
 	margin-top: 25px;
 }
