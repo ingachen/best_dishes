@@ -1,17 +1,35 @@
 $(document).ready(function() {
-  $('.category-select').on('click', function() {
-    var selectedCategory = $(this).data('category');
-    var dishes = $('.dish-card[data-category="' + selectedCategory + '"]');
-    $('.dish-card').hide();
-    $('.dish-card[data-category="' + selectedCategory + '"]').show();
+  var selectedCategory = 'All Categories';
+  var selectedCity = 'All Cities';
+  var $dishes = $('.dish-card');
 
-    var dishRanks = $('.dish-rank:visible');
-    Array.from(dishRanks).forEach(function(dishRank, i) {
-      $(dishRank).text(i + 1);
+  function filterDishes() {
+    $dishes.hide();
+
+    Array.from($dishes).filter(function(dish) {
+      var hasCategory = selectedCategory === 'All Categories' || $(dish).data('category') === selectedCategory;
+      var hasCity = selectedCity === 'All Cities' || $(dish).data('city') === selectedCity;
+
+      if (hasCategory && hasCity) {
+        $(dish).show();
+      }
     });
+  }
 
+  $('.category-select').on('click', function() {
+    selectedCategory = $(this).data('category');
+    filterDishes();
+    
     var dropdownContent = selectedCategory + ' <span class="caret"></span>';
     $('.category-dropdown').html(dropdownContent);
+  });
+
+  $('.city-select').on('click', function() {
+    selectedCity = $(this).data('city');
+    filterDishes();
+
+    var dropdownContent = selectedCity + ' <span class="caret"></span>';
+    $('.city-dropdown').html(dropdownContent);
   });
 
   $('.add-dish-category-select').on('click', function() {

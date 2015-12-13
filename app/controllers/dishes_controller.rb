@@ -7,6 +7,7 @@ class DishesController < ApplicationController
 		@dishes = Dish.all
 
  		@dish_categories = @dishes.map(&:dish_category).uniq
+ 		@dish_cities = @dishes.map(&:city).uniq
 		# @dish_categories = []
 
 		# @dishes.each do |dish|

@@ -23,6 +23,10 @@ class Dish < ActiveRecord::Base
 		@business ||= Yelp.client.business(yelp_id).business
 	end
 
+	def city
+		business.location.city
+	end
+
 	def dishes_by_category
 		@dishes = Dish.where(dish_category: "Pancakes")
 	end

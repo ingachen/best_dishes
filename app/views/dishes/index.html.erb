@@ -7,6 +7,7 @@
       <span class="caret"></span>
     </button>
     <ul class="dropdown-menu dropdown-menu-center" aria-labelledby="dropdownMenu1">
+      <li><a class="category-select" data-category="All Categories" href="#">All Categories</a></li>
       <% @dish_categories.each do |category| %>
         <li><a class="category-select" data-category="<%= category %>" href="#"><%= category %></a></li>
       <% end %>
@@ -15,20 +16,21 @@
   </div>
   <h4 class="text-center">in</h4>
   <div class="dropdown">
-    <button class="btn btn-blue dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Neighborhood, City
+    <button class="btn btn-blue dropdown-toggle city-dropdown" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      City
       <span class="caret"></span>
     </button>
     <ul class="dropdown-menu dropdown-menu-center" aria-labelledby="dropdownMenu1">
-      <% @dishes.each do |yelp| %>
-        <li><a href="#"><%= yelp.business.location.neighborhoods.first %>, <%= yelp.business.location.city %></a></li>
+      <li><a class="city-select" data-city="All Cities" href="#">All Cities</a></li>
+      <% @dish_cities.each do |city| %>
+        <li><a class="city-select" data-city="<%= city %>" href="#"><%= city %></a></li>
         <% end %>
     </ul>
   </div>      
 
   <div class="dishes-grid row">
     <% @dishes.sort_by(&:average_rating).reverse.each_with_index do |dish, i| %>
-      <div class="col-xs-6 col-sm-4 dish-card" data-category="<%= dish.dish_category %>">
+      <div class="col-xs-6 col-sm-4 dish-card" data-category="<%= dish.dish_category %>" data-city="<%= dish.city %>">
         <div class="one-dish">
           <img class="dish-image" src=<%= dish.dish_coverphoto %> height="300" />
           <div class="dish-number img-padding"><span class="dish-rank"><%= i + 1 %></span>. <%= dish.dish_name %></div>
