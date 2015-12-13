@@ -3,6 +3,10 @@ body {
 	font-family: 'Montserrat', sans-serif;
 }
 
+.add-dish-button{
+	margin-right: 10px;
+}
+
 .margin-top-20 {
 	margin-top:20px;
 	font-family: 'Montserrat', sans-serif;
@@ -14,7 +18,7 @@ body {
 }
 
 .margin-right-25 {
-	margin-right:25px;
+	margin-right:0px;
 }
 
 .img-padding {
@@ -26,7 +30,7 @@ body {
 .one-dish {
 	padding:15px;
 	background-color:#192C44;
-	border-radius:10px;
+	border-radius:5px;
 }
 
 .no-pad {
@@ -107,14 +111,27 @@ body {
 	color:#FFFFFF;
 }
 
+.dishes-grid {
+	margin-top: 25px;
+}
+
+.dish-card {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.dish-image {
+	width: 100%;
+}
+
 .dish-number {
 	color:#FFFFFF;	
-	font-size: x-large;
+	font-size: large;
 }
 
 .dish-title {
 	color:#FFFFFF;	
-	font-size: large;
+	font-size: small;
 }
 
 .restaurant {

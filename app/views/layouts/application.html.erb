@@ -25,7 +25,7 @@
         </ul>
       </div>   
     </div>
-    <div class="pull-right">
+    <div class="add-dish-button pull-right">
       <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#AddDish">
         Add a Dish
       </button>
@@ -46,14 +46,14 @@
             <div class="orange-text">CATEGORY</div>
             <%= form_for :dish, url: dishes_path do |f| %>
               <div class="dropdown">
-                <button class="btn btn-orange-form dropdown-toggle margin-top-10" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-orange-form dropdown-toggle margin-top-10 category-dropdown" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Select Food Category
                   <span class="caret"></span>
                 </button>
               
                 <ul class="dropdown-menu dropdown-menu-modal" aria-labelledby="dropdownMenu1">
                   <% @dish_categories.uniq.each do |category| %>
-                  <li><a href="#"><%= category %></a></li>
+                  <li><a class="category-select" data-category="<%= category %>" href="#"><%= f.select :dish_category, [category] %></a></li>
                   <% end %>
                   <li><a href="#" data-toggle="modal" data-target="#categoryModal">Create a category</a></li>
                 </ul>
@@ -63,18 +63,10 @@
               <%= f.text_field :dish_name, class: "form-control margin-top-10", placeholder: "e.g. Lemon ricotta pancakes" %>
               
               <div class="orange-text margin-top-20">DISH COVER PHOTO</div>
-              <%= f.text_field :dish_coverphoto, class: "form-control margin-top-10", placeholder: "Paste image URL here" %>
+              <%= f.text_field :dish_coverphoto, class: "form-control margin-top-10", placeholder: "Paste image URL here. Must be a square image." %>
               
               <div class="orange-text margin-top-20">RESTAURANT</div>
-              <button class="btn btn-orange-form dropdown-toggle margin-top-10" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Select Restaurant (TBD AUTO FILL) <span class="caret"></span>
-              </button>
-
-              <ul class="dropdown-menu dropdown-menu-modal" aria-labelledby="dropdownMenu2">
-                <% @dish_categories.uniq.each do |category| %>
-                <li><a href="#"><%= category %></a></li>
-                <% end %>
-              </ul>
+              <%= f.text_field :yelp_id, class: "form-control margin-top-10", placeholder: "Write the yelp id of the restaurant here" %>
 
               <div class="modal-footer">
                 <%= f.submit 'Save', class: 'btn btn-orange btn-center' %>

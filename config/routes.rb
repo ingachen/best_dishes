@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   }
   
   root 'dishes#index'
-  resources :dishes
+  resources :dishes do
+    resources :reviews
+  end
   get 'dishes/dishes_by_category' => "dishes#dishes_by_category"
 
 end
