@@ -8,8 +8,7 @@ class ReviewsController < ApplicationController
 	end
 
 	def create
-		@review = Dish.find(params[:id]).reviews.create(review_params)
-		# @review = Dish.find(params[:id]).reviews.create(review_params)
+		@review = Dish.find(params[:dish_id]).reviews.create(review_params)
 
 		if @review.valid?
 			redirect_to :back
