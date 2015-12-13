@@ -1,0 +1,13 @@
+<div class="dropdown">
+  <button class="btn btn-primary btn-blue dropdown-toggle category-dropdown" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dish Category
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-center" aria-labelledby="dropdownMenu1">
+    <li><a class="category-select" data-category="All Categories" href="#">All Categories</a></li>
+    <% @dish_categories.each do |category| %>
+      <li><a class="category-select" data-category="<%= category %>" href="#"><%= category %></a></li>
+    <% end %>
+    <li><a href="#" data-toggle="modal" data-target="#categoryModal">Create a category</a></li>
+  </ul>  
+</div>

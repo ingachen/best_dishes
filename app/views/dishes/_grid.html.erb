@@ -1,0 +1,46 @@
+<div class="dishes-grid row">
+  <% @dishes.sort_by(&:average_rating).reverse.each_with_index do |dish, i| %>
+    <div class="col-xs-6 col-sm-4 dish-card" data-category="<%= dish.dish_category %>" data-city="<%= dish.city %>">
+      <div class="one-dish">
+        <img class="dish-image" src=<%= dish.dish_coverphoto %> height="300" />
+        <div class="dish-number img-padding"><span class="dish-rank"><%= i + 1 %></span>. <%= dish.dish_name %></div>
+        <p class="dish-title img-padding"><%= dish.business.name %></p> 
+        <p class="restaurant img-padding"><%= dish.business.location.neighborhoods.first %>, <%= dish.business.location.city %></p>
+        <button class="btn btn-orange img-padding">
+          Overall Rating: <%= dish.display_average_rating %>
+        </button>
+        <button type="button" class="btn btn-line" data-toggle="modal" data-target="#AddDishRating">
+          Review this dish
+        </button>
+        <p class="dish-title img-padding"><%= dish.reviews.count %> Reviews</p>
+        <p class="dish-reviews-link dish-title img-padding" data-toggle="modal" data-target="#reviews-modal">View Reviews</p>
+
+        <%= render partial: 'reviews_modal', locals: { reviews: dish.reviews } %>
+
+          <div class="modal fade" id="AddDishRating" tabindex="-1" role="dialog" aria-labelledby="AddDishRatingLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Review this dish</h4>
+                </div>
+                <div class="modal-body">
+                  <%= form_for :review, url: dish_reviews_path(dish.id) do |f| %>
+                    <div class="orange-text">DISH</div>
+                    <p><%= dish.dish_name %> at <%= dish.business.name %></p>
+                    <div class="orange-text margin-top-20">DISH RATING</div>
+                    <%= f.text_field :review_rating, class: "form-control margin-top-10", placeholder: "Rate your dish from 1-10. 10 is the best you've ever had!" %>
+                    <div class="orange-text margin-top-20">COMMENTS</div>
+                    <%= f.text_area :review_content, class: "form-control margin-top-10", placeholder: "Comment on the dish and why you gave it the rating you did. What made it good? What could have been better? Compare this to other similar dishes you've had.", rows: "10"%>
+                    <div class="modal-footer">
+                      <%= f.submit 'Save', class: "btn btn-orange btn-center" %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  <% end %>
+</div>

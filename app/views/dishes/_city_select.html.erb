@@ -1,0 +1,12 @@
+<div class="dropdown">
+  <button class="btn btn-blue dropdown-toggle city-dropdown" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    City
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-center" aria-labelledby="dropdownMenu1">
+    <li><a class="city-select" data-city="All Cities" href="#">All Cities</a></li>
+    <% @dish_cities.each do |city| %>
+      <li><a class="city-select" data-city="<%= city %>" href="#"><%= city %></a></li>
+      <% end %>
+  </ul>
+</div>
