@@ -1,8 +1,10 @@
 <div class="container margin-top-20">
   <div class="clearfix"></div>
-  <h4 class="text-center">I'm in the mood for</h4>
-  <%= render partial: 'categories_select' %>
-  <h4 class="text-center">in</h4>
-  <%= render partial: 'city_select' %>
+  <div class="selection-wrapper">
+    <h4 class="selection-component text-center">I'm in the mood for</h4>
+    <%= render partial: 'categories_select' %>
+    <h4 class="selection-component text-center">in</h4>
+    <%= render partial: 'city_select' %>
+  </div>
   <%= render partial: 'grid' %>
 </div>

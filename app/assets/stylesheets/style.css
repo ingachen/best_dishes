@@ -3,6 +3,23 @@ body {
 	font-family: 'Montserrat', sans-serif;
 }
 
+.selection-wrapper {
+	text-align: center;
+}
+
+.selection-component {
+	display: inline-block;
+	margin-left: 25px;
+}
+
+.selection-component:first-child {
+	margin-left: 0;
+}
+
+.selection-component button {
+	min-width: 200px;
+}
+
 .add-dish-button {
 	margin-right: 10px;
 }
