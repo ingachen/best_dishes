@@ -2,6 +2,8 @@ $(document).ready(function() {
   var selectedCategory = 'All Categories';
   var selectedCity = 'All Cities';
   var $dishes = $('.dish-card');
+  var $addDishCategoryField = $('.add-dish-category-field');
+  var $addDishSelectCategoryDropdown = $('.add-dish-select-category-dropdown');
 
   function filterDishes() {
     $dishes.hide();
@@ -34,10 +36,14 @@ $(document).ready(function() {
 
   $('.add-dish-category-select').on('click', function() {
     var selectedCategory = $(this).data('category');
-    $('.add-dish-category-field').val(selectedCategory);
+    $addDishCategoryField.val(selectedCategory);
 
     var dropdownContent = selectedCategory + ' <span class="caret"></span>';
-    $('.add-dish-select-category-dropdown').html(dropdownContent);
+    $addDishSelectCategoryDropdown.html(dropdownContent);
+  });
 
+  $('.add-dish-create-category').on('click', function() {
+      $addDishCategoryField.show();
+      $addDishSelectCategoryDropdown.hide();
   });
 });

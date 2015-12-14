@@ -3,8 +3,12 @@ body {
 	font-family: 'Montserrat', sans-serif;
 }
 
-.add-dish-button{
+.add-dish-button {
 	margin-right: 10px;
+}
+
+.add-dish-category-field {
+	display: none;
 }
 
 .margin-top-20 {

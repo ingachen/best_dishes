@@ -66,11 +66,11 @@
                       </a>
                     </li>
                   <% end %>
-                  <li><a href="#" data-toggle="modal" data-target="#categoryModal">Create a category</a></li>
+                  <li><a class="add-dish-create-category" href="#">Create a category</a></li>
                 </ul>
               </div>
 
-              <%= f.hidden_field :dish_category, class: "add-dish-category-field" %>
+              <%= f.text_field :dish_category, class: "add-dish-category-field form-control margin-top-10", placeholder: "Enter a category" %>
 
               <div class="orange-text margin-top-20">DISH NAME</div>
               <%= f.text_field :dish_name, class: "form-control margin-top-10", placeholder: "e.g. Lemon ricotta pancakes" %>
@@ -91,24 +91,6 @@
       </div>
     </div>
   
-  <div class="modal fade" id="categoryModal" tabindex="-1" role="dialog" aria-labelledby="categoryModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="categoryModalLabel">Create a Category</h4>
-        </div>
-        <div class="modal-body">
-          <div class="orange-text">CATEGORY NAME</div>
-          <input type="text" class="form-control margin-top-10" id="inputname" placeholder="e.g. Pancakes">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-orange btn-center">Save</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
 <% else %>
 <% end %>
 
