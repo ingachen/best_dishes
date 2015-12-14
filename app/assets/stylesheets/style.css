@@ -16,6 +16,7 @@ body {
 	margin-left: 0;
 }
 
+.selection-component .dropdown-menu,
 .selection-component button {
 	min-width: 200px;
 }
