@@ -10,7 +10,7 @@ $(document).ready(function() {
 
     var runningRank = 1;
 
-    Array.from($dishes).filter(function(dish) {
+    Array.from($dishes).forEach(function(dish) {
       var hasCategory = selectedCategory === 'All Categories' || $(dish).data('category') === selectedCategory;
       var hasCity = selectedCity === 'All Cities' || $(dish).data('city') === selectedCity;
 
@@ -39,10 +39,10 @@ $(document).ready(function() {
   });
 
   $('.add-dish-category-select').on('click', function() {
-    var selectedCategory = $(this).data('category');
-    $addDishCategoryField.val(selectedCategory);
+    var addDishSelectedCategory = $(this).data('category');
+    $addDishCategoryField.val(addDishSelectedCategory);
 
-    var dropdownContent = selectedCategory + ' <span class="caret"></span>';
+    var dropdownContent = addDishSelectedCategory + ' <span class="caret"></span>';
     $addDishSelectCategoryDropdown.html(dropdownContent);
   });
 
