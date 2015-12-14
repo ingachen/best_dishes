@@ -4,8 +4,8 @@
       <div class="one-dish">
         <img class="dish-image" src=<%= dish.dish_coverphoto %> height="300" />
         <div class="dish-number img-padding"><span class="dish-rank"><%= i + 1 %></span>. <%= dish.dish_name %></div>
-        <p class="dish-title img-padding"><%= dish.business.name %></p> 
-        <p class="restaurant img-padding">
+        <p class="dish-title restaurant-padding"><%= dish.business.name %></p> 
+        <p class="restaurant restaurant-padding">
           <% if dish.business.location.neighborhoods.nil? %>
           <%= dish.business.location.city %>         
           <% else %>
@@ -15,12 +15,12 @@
         <button class="btn btn-orange img-padding">
           Overall Rating: <%= dish.display_average_rating %>
         </button>
-        <button type="button" class="btn btn-line" data-toggle="modal" data-target="#AddDishRating">
+        <button type="button" class="btn btn-line" data-toggle="modal" data-target="#review-dish-modal-<%= dish.id %>">
           Review this dish
         </button>
-        <p class="dish-reviews-link dish-title img-padding" data-toggle="modal" data-target="#reviews-modal">View <%= dish.reviews.count %> Reviews</p>
+        <p class="dish-reviews-link dish-title img-padding" data-toggle="modal" data-target="#reviews-modal-<%= dish.id %>">View <%= dish.reviews.count %> Reviews</p>
 
-        <%= render partial: 'reviews_modal', locals: { reviews: dish.reviews } %>
+        <%= render partial: 'reviews_modal', locals: { dish: dish } %>
         <%= render partial: 'review_dish_modal', locals: { dish: dish } %>
       </div>
     </div>

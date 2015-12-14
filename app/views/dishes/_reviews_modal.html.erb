@@ -1,4 +1,4 @@
-<div class="modal fade" id="reviews-modal" tabindex="-1" role="dialog" aria-labelledby="reviews-modal">
+<div class="modal fade" id="reviews-modal-<%= dish.id %>" tabindex="-1" role="dialog" aria-labelledby="reviews-modal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -6,8 +6,12 @@
         <h4 class="modal-title" id="categoryModalLabel">Reviews</h4>
       </div>
       <div class="modal-body">
-        <% reviews.each do |review| %>
-          <h4>Rating: <%= review.review_rating %> / 10</h4>
+        <div class="orange-text">DISH</div>
+        <p><%= dish.dish_name %> at <%= dish.business.name %></p>
+        <% dish.reviews.each do |review| %>
+        <div class="orange-text margin-top-20">DISH RATING</div>
+          <h4><%= review.review_rating %> / 10</h4>
+        <div class="orange-text margin-top-20">COMMENTS</div>  
           <p><%= review.review_content %></p>
         <% end %>
       </div>

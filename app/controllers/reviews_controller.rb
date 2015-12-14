@@ -18,6 +18,9 @@ class ReviewsController < ApplicationController
 		end
 	end
 
+	def show
+		@review = Dish.find(params[:dish_id]).reviews
+	end
 
 private
 	def review_params

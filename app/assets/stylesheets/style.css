@@ -49,6 +49,10 @@ body {
 	margin-left:10px;
 }
 
+.restaurant-padding {
+	margin-left:10px;
+}
+
 .one-dish {
 	padding:15px;
 	background-color:#192C44;
@@ -169,6 +173,10 @@ body {
 .modal-header {
 	background-color:#192C44;
 	border-bottom:0;
+}
+
+.modal-review-separator {
+	border-bottom:1;
 }
 
 .modal-body {
