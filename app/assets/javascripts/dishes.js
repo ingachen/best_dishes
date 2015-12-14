@@ -8,12 +8,16 @@ $(document).ready(function() {
   function filterDishes() {
     $dishes.hide();
 
+    var runningRank = 1;
+
     Array.from($dishes).filter(function(dish) {
       var hasCategory = selectedCategory === 'All Categories' || $(dish).data('category') === selectedCategory;
       var hasCity = selectedCity === 'All Cities' || $(dish).data('city') === selectedCity;
 
       if (hasCategory && hasCity) {
         $(dish).show();
+        $(dish).find('.dish-rank').text(runningRank);
+        runningRank++;
       }
     });
   }
