@@ -3,16 +3,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="categoryModalLabel">Reviews</h4>
+        <h4 class="modal-title" id="categoryModalLabel">Reviews of:</h4>
       </div>
       <div class="modal-body">
-        <div class="orange-text">DISH</div>
-        <p><%= dish.dish_name %> at <%= dish.business.name %></p>
+        <h4 class="orange-text modal-title" id="categoryModalLabel"><%= dish.dish_name %> at <%= dish.business.name %></h4>
+        <hr>
         <% dish.reviews.each do |review| %>
-        <div class="orange-text margin-top-20">DISH RATING</div>
-          <h4><%= review.review_rating %> / 10</h4>
-        <div class="orange-text margin-top-20">COMMENTS</div>  
+          <div class="orange-text margin-top-20">RATING: <%= review.review_rating %> / 10</div>
           <p><%= review.review_content %></p>
+          <hr>
         <% end %>
       </div>
     </div>

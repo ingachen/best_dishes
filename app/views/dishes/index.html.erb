@@ -7,4 +7,18 @@
     <%= render partial: 'city_select' %>
   </div>
   <%= render partial: 'grid' %>
+  <div class="empty-state-message">
+    <img src="http://i.istockimg.com/file_thumbview_approve/59249106/5/stock-illustration-59249106-empty-plate-on-white-background.jpg">
+    <div class="margin-top-20">
+      Know the best
+      <span class="empty-state-category"></span> in
+      <span class="empty-state-city"></span>?
+    </div>
+    <div>
+      Don't leave us hanging!
+    </div>
+    <button type="button" class="btn btn-orange empty-state-add-dish margin-top-20" data-toggle="modal" data-target="#AddDish">
+      Add it
+    </button>
+  </div>
 </div>

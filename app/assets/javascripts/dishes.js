@@ -4,6 +4,9 @@ $(document).ready(function() {
   var $dishes = $('.dish-card');
   var $addDishCategoryField = $('.add-dish-category-field');
   var $addDishSelectCategoryDropdown = $('.add-dish-select-category-dropdown');
+  var $emptyStateMessage = $('.empty-state-message');
+  var $emptyStateCategory = $('.empty-state-category');
+  var $emptyStateCity = $('.empty-state-city');
 
   function filterDishes() {
     $dishes.hide();
@@ -20,6 +23,14 @@ $(document).ready(function() {
         runningRank++;
       }
     });
+
+    if (!$('.dish-card:visible').length) {
+      $emptyStateCategory.text(selectedCategory);
+      $emptyStateCity.text(selectedCity);
+      $emptyStateMessage.show();
+    } else {
+      $emptyStateMessage.hide();
+    }
   }
 
   $('.category-select').on('click', function() {

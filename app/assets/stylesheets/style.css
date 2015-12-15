@@ -3,6 +3,17 @@ body {
 	font-family: 'Montserrat', sans-serif;
 }
 
+.empty-state-message {
+	display: none;
+	text-align: center;
+	font-size: 18px;
+}
+
+.empty-state-add-dish {
+	margin-top: 5px;
+	font-size: 18px;
+}
+
 .selection-wrapper {
 	text-align: center;
 }
@@ -32,6 +43,10 @@ body {
 .margin-top-20 {
 	margin-top:20px;
 	font-family: 'Montserrat', sans-serif;
+}
+
+.margin-top-50 {
+	margin-top:100px;
 }
 
 .margin-top-10 {
@@ -175,21 +190,20 @@ body {
 	border-bottom:0;
 }
 
-.modal-review-separator {
-	border-bottom:1;
-}
-
 .modal-body {
 	background-color:#192C44;
 	color:#FFFFFF;
 	font-family: 'Montserrat', sans-serif;
 }
 
+.modal-body-separator {
+	border-bottom:1px solid #eee;
+}
+
 .modal-footer {
 	background-color:#192C44;
 	color:#FFFFFF;
 	font-family: 'Montserrat', sans-serif;	
-	border-top:0;
 }
 
 .modal-title {
