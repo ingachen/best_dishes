@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'dotenv-rails', require: 'dotenv/rails-now'
+gem 'dotenv-rails', require: 'dotenv/rails-now', :groups => [:development, :test, :production]
 gem 'devise'
 
 gem 'yelp', require: 'yelp'
